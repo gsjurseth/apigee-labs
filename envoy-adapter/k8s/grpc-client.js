@@ -35,7 +35,7 @@ metadata.add('x-api-key', apikey);
 
 function main() {
 	var grpcHost = process.argv[2];
-  var client = new hello_proto.Greeter(grpcHost + ':8082',
+  var client = new hello_proto.Greeter(grpcHost,
                                        grpc.credentials.createInsecure());
   var user;
   if (process.argv.length >= 5) {
