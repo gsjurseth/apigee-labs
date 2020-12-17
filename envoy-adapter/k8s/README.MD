@@ -183,6 +183,10 @@ npm install
 ```console
 node grpc-client.js $SVCIP $APIKEY
 ```
+or you can add a name
+```console
+node grpc-client.js $SVCIP $APIKEY Charles
+```
 
 # Sample Expected Output
 ```

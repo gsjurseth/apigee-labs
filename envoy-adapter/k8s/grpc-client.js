@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 /*
  *
  * Copyright 2015 gRPC authors.
@@ -35,8 +37,7 @@ metadata.add('x-api-key', apikey);
 
 function main() {
 	var grpcHost = process.argv[2];
-  var client = new hello_proto.Greeter(grpcHost,
-                                       grpc.credentials.createInsecure());
+  var client = new hello_proto.Greeter(grpcHost, grpc.credentials.createInsecure());
   var user;
   if (process.argv.length >= 5) {
     user = process.argv[4];
@@ -47,7 +48,8 @@ function main() {
     if (response)
       console.log('Greeting:', response.message);
     else
-      console.log('The sayHello call failed:', err.message);
+      console.log('The sayHello call failed: %s', err.stack);
+      console.log('Trying to hit server: ', process.argv[2]);
   });
 }
 
